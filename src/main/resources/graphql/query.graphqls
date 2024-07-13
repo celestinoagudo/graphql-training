@@ -1,0 +1,32 @@
+type Query {
+    firstQuery: String
+    secondQuery: String
+    getFullName(firstName: String, lastName: String): String
+    getFullNameViaJSON(sampleRequest: SampleRequest): String
+    getStudentById(id: ID): StudentResponse
+}
+
+input SampleRequest{
+    firstName: String!
+    lastName: String!
+}
+
+type StudentResponse{
+    id: ID
+    firstName: String
+    lastName: String
+    email: String
+    street: String
+    city: String
+    learningSubjects: [SubjectResponse]!
+}
+
+type SubjectResponse{
+    id: ID
+    subjectName: String
+    marksObtained: Float
+}
+
+enum SubjectName {
+    COM_INT, COM_DES, MOD_SIM
+}
